@@ -1,0 +1,6 @@
+{
+  "expected_discount_inr": 107.0,
+  "expected_incremental_profit_inr": 32.0,
+  "customers_offered": 2,
+  "opt_out_respected": true
+}

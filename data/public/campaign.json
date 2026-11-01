@@ -1,0 +1,20 @@
+{
+  "campaign_id": "rasoi-festive-2026",
+  "snapshot_date": "2026-08-31",
+  "trial_offer_date": "2026-09-01",
+  "campaign_date": "2026-10-01",
+  "campaign_window_days": 30,
+  "customers": 200000,
+  "trial_customers": 40000,
+  "trial_design": "randomised 1:1:1 control / 10% / 20%, one offer per customer",
+  "economics": {
+    "profit_per_order_before_discount_inr": 55.0,
+    "discount_applies_to": "the customer's first redeemed order in the 30-day window",
+    "discount_budget_inr": 80000000.0
+  },
+  "constraints": {
+    "one_offer_per_customer": true,
+    "no_contact_if_promo_opt_out": true,
+    "budget_inr": 80000000.0
+  }
+}

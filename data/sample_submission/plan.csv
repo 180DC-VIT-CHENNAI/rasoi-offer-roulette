@@ -1,0 +1,6 @@
+customer_id,offer,expected_discount_inr,expected_incremental_profit_inr
+CU-000001,OFFER_10,33.00,12.00
+CU-000002,NONE,0.00,0.00
+CU-000003,NONE,0.00,0.00
+CU-000004,OFFER_20,74.00,20.00
+CU-000005,NONE,0.00,0.00

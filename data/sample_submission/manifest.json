@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "case_id": "m3-rasoi",
+  "team_id": "sample",
+  "commit": "unknown",
+  "python": "3.11",
+  "entrypoints": {
+    "submit": "make submit"
+  },
+  "files": {
+    "predictions.csv": "sha256:304e19171bcf14d33cdd5159e45f9b061dcd0e9bebafeb2cc10dd56ad9ad31ac",
+    "plan.csv": "sha256:14d04bc231f97e2403c140c61fc249b16991899f13d92ef68794681fced92755",
+    "portfolio.json": "sha256:6ebd54888f53da38e2c2d23bb21acc9f8365d6f5eddf3ea3cb9edae948b59e00"
+  },
+  "memo": null,
+  "slides": null,
+  "bonus": []
+}

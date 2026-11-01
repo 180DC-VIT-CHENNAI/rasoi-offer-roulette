@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  quality:
+    name: tests, lint and types (green)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install
+        run: pip install -e ".[dev]"
+      - name: Lint
+        run: ruff check src tests
+      - name: Types
+        run: mypy src
+      - name: Tests excluding the deliberate defects
+        run: >
+          pytest -q
+          --ignore=tests/test_budget.py
+          --ignore=tests/test_uplift.py
+          --ignore=tests/test_api.py
+      - name: Baseline submission schema
+        run: |
+          make submit
+          python -c "import pandas as pd, json; from rasoi.submission import validate_predictions, validate_plan; from rasoi.io.loaders import load_bundle; b=load_bundle('data/public'); p=pd.read_csv('submission/predictions.csv'); q=pd.read_csv('submission/plan.csv'); validate_predictions(p, len(b.customers)); validate_plan(q, set(b.customers.loc[~b.customers.promo_opt_out.astype(bool),'customer_id']), len(b.customers))"
+
+  known-defects:
+    name: known defects (allowed to fail until fixed)
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -e ".[dev]"
+      - name: ISSUE-01, ISSUE-02 and ISSUE-05 are expected to fail here
+        run: pytest -q tests/test_uplift.py tests/test_budget.py tests/test_api.py
