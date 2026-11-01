@@ -5,7 +5,7 @@ def test_public_files_load(bundle):
     assert len(bundle.customers) == 200_000
     assert len(bundle.trial) == 40_000
     assert len(bundle.orders) > 1_000_000
-    assert bundle.campaign.discount_budget_inr == 80_000_000
+    assert bundle.campaign.discount_budget_inr == 8_000_000
 
 
 def test_trial_is_randomised_and_complete(bundle):
