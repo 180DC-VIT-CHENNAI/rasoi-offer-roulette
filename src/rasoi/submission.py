@@ -154,7 +154,7 @@ def write_submission(
 ) -> dict:
     validate_predictions(predictions, expected_customers)
     validate_plan(plan, eligible_ids, expected_customers)
-    validate_portfolio(portfolio, 80_000_000.0)
+    validate_portfolio(portfolio, 8_000_000.0)
     root = Path(out_dir)
     root.mkdir(parents=True, exist_ok=True)
     write_predictions(predictions, root / "predictions.csv")

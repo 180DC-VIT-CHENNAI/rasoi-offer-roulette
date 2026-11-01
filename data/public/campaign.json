@@ -10,11 +10,11 @@
   "economics": {
     "profit_per_order_before_discount_inr": 55.0,
     "discount_applies_to": "the customer's first redeemed order in the 30-day window",
-    "discount_budget_inr": 80000000.0
+    "discount_budget_inr": 8000000.0
   },
   "constraints": {
     "one_offer_per_customer": true,
     "no_contact_if_promo_opt_out": true,
-    "budget_inr": 80000000.0
+    "budget_inr": 8000000.0
   }
 }
